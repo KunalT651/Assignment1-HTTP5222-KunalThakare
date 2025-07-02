@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1 Add Experience
+  form(action='/admin/experiences/add' method='POST')
+    label(for='title') Title
+    input(type='text' name='title' required)
+    label(for='company') Company
+    input(type='text' name='company' required)
+    label(for='location') Location
+    input(type='text' name='location' required)
+    label(for='startDate') Start Date
+    input(type='text' name='startDate' required placeholder='e.g. Dec 2022')
+    label(for='endDate') End Date
+    input(type='text' name='endDate' required placeholder='e.g. Dec 2023')
+    label(for='description') Description (one bullet per line)
+    textarea(name='description' rows='6')
+    label(for='order') Order
+    input(type='number' name='order' value='0')
+    button(type='submit') Add Experience

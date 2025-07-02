@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  h1 Experiences
+  a(href='/admin/experiences/add') Add Experience
+  table
+    thead
+      tr
+        th Title
+        th Company
+        th Location
+        th Dates
+        th Description
+        th Actions
+    tbody
+      each experience in experiences
+        tr
+          td #{experience.title}
+          td #{experience.company}
+          td #{experience.location}
+          td #{experience.startDate} - #{experience.endDate}
+          td
+            if experience.description && experience.description.length
+              ul
+                each desc in experience.description
+                  li= desc
+            else
+              | —
+          td.actions
+            a.action-btn.edit(href=`/admin/experiences/edit/${experience._id}`) Edit
+            form(action=`/admin/experiences/delete/${experience._id}` method='POST' style='display:inline')
+              button.action-btn.delete(type='submit') Delete

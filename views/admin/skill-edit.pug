@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1 Edit Skill
+  form(action=`/admin/skills/edit/${skill._id}` method='POST')
+    label(for='name') Name
+    input(type='text' name='name' required value=skill.name)
+    label(for='category') Category
+    input(type='text' name='category' required value=skill.category)
+    label(for='order') Order
+    input(type='number' name='order' value=skill.order)
+    button(type='submit') Update Skill 

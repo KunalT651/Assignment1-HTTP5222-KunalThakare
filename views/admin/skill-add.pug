@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1 Add Skill
+  form(action='/admin/skills/add' method='POST')
+    label(for='name') Name
+    input(type='text' name='name' required)
+    label(for='category') Category
+    input(type='text' name='category' required placeholder='e.g. Programming Language, DevOps Tool, Concept')
+    label(for='order') Order
+    input(type='number' name='order' value='0')
+    button(type='submit') Add Skill

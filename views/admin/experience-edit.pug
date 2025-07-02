@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1 Edit Experience
+  form(action=`/admin/experiences/edit/${experience._id}` method='POST')
+    label(for='title') Title
+    input(type='text' name='title' required value=experience.title)
+    label(for='company') Company
+    input(type='text' name='company' required value=experience.company)
+    label(for='location') Location
+    input(type='text' name='location' required value=experience.location)
+    label(for='startDate') Start Date
+    input(type='text' name='startDate' required value=experience.startDate)
+    label(for='endDate') End Date
+    input(type='text' name='endDate' required value=experience.endDate)
+    label(for='description') Description (one bullet per line)
+    textarea(name='description' rows='6')= experience.description.join('\n')
+    label(for='order') Order
+    input(type='number' name='order' value=experience.order)
+    button(type='submit') Update Experience
